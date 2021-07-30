@@ -1,37 +1,9 @@
-<% if logged_in? %>
-  <h1>タスク一覧</h1>
-  
-  <ul>
-  <% @tasks.each do |task| %>
-    <li><%= link_to task.id, task %> : <%= task.status %> &gt; <%= task.content %></li>
-  <% end %>
-  </ul>
-  
-  <%= link_to "新規タスクの作成", new_task_path %>
-<% else %>
-  <div class="text-center">
-  <h1>Log in</h1>
-</div>
+<h1>タスク一覧</h1>
 
-<div class="row">
-  <div class="col-sm-6 offset-sm-3">
-
-    <%= form_with(url: login_path, scope: :session) do |f| %>
-    
-    <div class="mb-3">
-        <%= f.label :name, 'Name' %>
-        <%= f.text_field :name, class: 'form-control' %>
-      </div>
-
-      <div class="mb-3">
-        <%= f.label :password, 'Password' %>
-        <%= f.password_field :password, class: 'form-control' %>
-      </div>
-
-      <%= f.submit 'Log in', class: 'btn btn-primary w-100' %>
-    <% end %>
-
-    <p>New user? <%= link_to 'Sign up now!', signup_path %></p>
-  </div>
-</div>
+<ul>
+<% @tasks.each do |task| %>
+  <li><%= link_to task.id, task %> : <%= task.status %> &gt; <%= task.content %></li>
 <% end %>
+</ul>
+
+<%= link_to "新規タスクの作成", new_task_path %>
