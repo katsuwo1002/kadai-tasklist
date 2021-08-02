@@ -1,5 +1,5 @@
 <%= form_with(model: task) do |f| %>
-  <%= render 'layouts/error_messages', model: @task %>
+<%= render 'layouts/error_messages', model: f.object %>
   
   <%= f.label :status, "ステータス" %>
   <%= f.text_field :status %>
